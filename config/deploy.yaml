@@ -1,0 +1,23 @@
+app:
+  name: road_mome_demo_v1
+  version: 1.0.0
+
+runtime:
+  offline_mode: true
+  device: "auto"
+  save_results: true
+  log_level: "INFO"
+
+weights:
+  mome_model: "./weights/road_mome_v12_best.pth"
+
+data:
+  demo_npz_dir: "./demo_data/npz"
+  demo_jpg_dir: "./demo_data/jpg"
+  index_file: "./demo_data/index.json"
+
+outputs:
+  visualization_dir: "./outputs/visualizations"
+  log_dir: "./outputs/logs"
+
+# TODO: Add deployment toggles only for the standalone demo runtime.

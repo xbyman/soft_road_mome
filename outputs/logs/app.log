@@ -1,0 +1,39 @@
+2026-03-27 22:27:13 | INFO | road_mome_demo | logger smoke test
+2026-03-27 22:28:08 | INFO | road_mome_demo | logger smoke test 2
+2026-03-27 23:28:45 | ERROR | road_mome_demo | 索引校验失败 | index_path=C:\Users\31078\Desktop\road_mome_demo_v1\tests\_tmp\validator_case_4fe55fdaba0644cd8e8474dd4f8a8976\demo_data\index.json | error=Index file is empty: C:\Users\31078\Desktop\road_mome_demo_v1\tests\_tmp\validator_case_4fe55fdaba0644cd8e8474dd4f8a8976\demo_data\index.json. The demo requires at least one sample.
+2026-03-27 23:28:45 | ERROR | road_mome_demo | 启动校验失败 | error=Index file is empty: C:\Users\31078\Desktop\road_mome_demo_v1\tests\_tmp\validator_case_4fe55fdaba0644cd8e8474dd4f8a8976\demo_data\index.json. The demo requires at least one sample.
+2026-03-27 23:28:45 | ERROR | road_mome_demo | 索引校验失败 | index_path=C:\Users\31078\Desktop\road_mome_demo_v1\tests\_tmp\validator_case_c8601bd57251439b8cf38c0da47022fd\demo_data\index.json | error=Index file must contain a top-level JSON object: C:\Users\31078\Desktop\road_mome_demo_v1\tests\_tmp\validator_case_c8601bd57251439b8cf38c0da47022fd\demo_data\index.json
+2026-03-27 23:28:45 | ERROR | road_mome_demo | 启动校验失败 | error=Index file must contain a top-level JSON object: C:\Users\31078\Desktop\road_mome_demo_v1\tests\_tmp\validator_case_c8601bd57251439b8cf38c0da47022fd\demo_data\index.json
+2026-03-27 23:28:45 | ERROR | road_mome_demo | 索引校验失败 | index_path=C:\Users\31078\Desktop\road_mome_demo_v1\tests\_tmp\validator_case_8585cad355f34e9ca4ddf2eae7445205\demo_data\index.json | missing_jpg=1 | missing_npz=1 | error=Index asset validation failed for C:\Users\31078\Desktop\road_mome_demo_v1\tests\_tmp\validator_case_8585cad355f34e9ca4ddf2eae7445205\demo_data\index.json. total_samples=1, missing_jpg=1, missing_npz=1. Examples: frame 'frame_001' jpg missing: C:\Users\31078\Desktop\road_mome_demo_v1\tests\_tmp\validator_case_8585cad355f34e9ca4ddf2eae7445205\demo_data\jpg\frame_001.jpg; frame 'frame_001' npz missing: C:\Users\31078\Desktop\road_mome_demo_v1\tests\_tmp\validator_case_8585cad355f34e9ca4ddf2eae7445205\demo_data\npz\frame_001.npz
+2026-03-27 23:28:45 | ERROR | road_mome_demo | 样本校验失败 | error=meta[:, 2] contains no active patches, so runtime inference cannot proceed.
+2026-03-27 23:35:25 | INFO | road_mome_demo | 应用初始化开始
+2026-03-27 23:35:25 | INFO | road_mome_demo | 启动校验通过 | sample_count=5 | weight_path=C:\Users\31078\Desktop\road_mome_demo_v1\weights\road_mome_v12_best.pth | visualization_dir=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\visualizations | log_dir=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\logs
+2026-03-27 23:35:25 | INFO | road_mome_demo | 启动校验通过 | sample_count=5 | weight_path=C:\Users\31078\Desktop\road_mome_demo_v1\weights\road_mome_v12_best.pth | visualization_dir=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\visualizations | log_dir=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\logs
+2026-03-27 23:35:25 | INFO | road_mome_demo | LocalSampleProvider 初始化成功 | sample_count=5
+2026-03-27 23:35:25 | INFO | road_mome_demo | MomeInferEngine 初始化成功 | weight_path=C:\Users\31078\Desktop\road_mome_demo_v1\weights\road_mome_v12_best.pth
+2026-03-27 23:35:25 | INFO | road_mome_demo | ResultExporter 初始化成功 | export_root=C:\Users\31078\Desktop\road_mome_demo_v1\outputs
+2026-03-27 23:35:25 | INFO | road_mome_demo | RuntimeContext 组装成功 | sample_count=5
+2026-03-28 00:05:15 | INFO | road_mome_demo | 应用初始化开始
+2026-03-28 00:05:15 | INFO | road_mome_demo | 启动校验通过 | sample_count=5 | weight_path=C:\Users\31078\Desktop\road_mome_demo_v1\weights\road_mome_v12_best.pth | visualization_dir=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\visualizations | log_dir=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\logs
+2026-03-28 00:05:15 | INFO | road_mome_demo | 启动校验通过 | sample_count=5 | weight_path=C:\Users\31078\Desktop\road_mome_demo_v1\weights\road_mome_v12_best.pth | visualization_dir=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\visualizations | log_dir=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\logs
+2026-03-28 00:05:15 | INFO | road_mome_demo | LocalSampleProvider 初始化成功 | sample_count=5
+2026-03-28 00:05:16 | INFO | road_mome_demo | MomeInferEngine 初始化成功 | weight_path=C:\Users\31078\Desktop\road_mome_demo_v1\weights\road_mome_v12_best.pth
+2026-03-28 00:05:16 | INFO | road_mome_demo | ResultExporter 初始化成功 | export_root=C:\Users\31078\Desktop\road_mome_demo_v1\outputs
+2026-03-28 00:05:16 | INFO | road_mome_demo | RuntimeContext 组装成功 | sample_count=5
+2026-03-28 00:05:39 | INFO | road_mome_demo | 用户点击运行检测 | frame_id=20230317074850.400 | threshold=0.50
+2026-03-28 00:05:39 | INFO | road_mome_demo | 样本读取成功 | frame_id=20230317074850.400
+2026-03-28 00:05:39 | INFO | road_mome_demo | 样本校验通过 | frame_id=20230317074850.400
+2026-03-28 00:05:39 | INFO | road_mome_demo | 开始推理 | frame_id=20230317074850.400 | threshold=0.5
+2026-03-28 00:05:42 | INFO | road_mome_demo | 推理完成 | frame_id=20230317074850.400 | abnormal_patch_count=14 | avg_pred_prob=0.2632237374782562
+2026-03-28 00:05:44 | INFO | road_mome_demo | 可视化成功 | frame_id=20230317074850.400
+2026-03-28 00:06:03 | INFO | road_mome_demo | 用户点击运行并导出 | frame_id=20230317074850.400 | threshold=0.50
+2026-03-28 00:06:03 | INFO | road_mome_demo | 样本读取成功 | frame_id=20230317074850.400
+2026-03-28 00:06:03 | INFO | road_mome_demo | 样本校验通过 | frame_id=20230317074850.400
+2026-03-28 00:06:03 | INFO | road_mome_demo | 开始推理 | frame_id=20230317074850.400 | threshold=0.5
+2026-03-28 00:06:03 | INFO | road_mome_demo | 推理完成 | frame_id=20230317074850.400 | abnormal_patch_count=14 | avg_pred_prob=0.2632237374782562
+2026-03-28 00:06:04 | INFO | road_mome_demo | 可视化成功 | frame_id=20230317074850.400
+2026-03-28 00:06:04 | INFO | road_mome_demo | 结果图保存成功 | frame_id=20230317074850.400 | path=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\visualizations\vis_20230317074850.400.jpg
+2026-03-28 00:06:04 | INFO | road_mome_demo | JSON 保存成功 | frame_id=20230317074850.400 | path=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\logs\result_20230317074850.400.json
+2026-03-28 00:06:04 | INFO | road_mome_demo | CSV 追加成功 | frame_id=20230317074850.400 | path=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\logs\result_summary.csv
+2026-03-28 00:06:04 | INFO | road_mome_demo | 导出完成 | frame_id=20230317074850.400 | visualization_path=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\visualizations\vis_20230317074850.400.jpg | json_log_path=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\logs\result_20230317074850.400.json | csv_log_path=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\logs\result_summary.csv
+2026-03-28 00:06:04 | INFO | road_mome_demo | 导出完成 | frame_id=20230317074850.400 | visualization_path=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\visualizations\vis_20230317074850.400.jpg | json_log_path=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\logs\result_20230317074850.400.json | csv_log_path=C:\Users\31078\Desktop\road_mome_demo_v1\outputs\logs\result_summary.csv

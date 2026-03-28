@@ -1,0 +1,9 @@
+page:
+  title: "Road MoME Demo V1.0"
+
+defaults:
+  threshold: 0.8
+  show_expert_weights: false
+  save_results: true
+
+# TODO: Expand UI-facing options when the browser demo is implemented.

@@ -1,0 +1,104 @@
+app:
+  name: road_mome_demo_v1
+  version: 1.0.0
+
+# TODO: Add shared runtime configuration.
+# ==============================================================================
+# Road-MoME 全局配置文件 (v14.0 LR Scheduler + 噪声帧重加权 + Attention mask)
+# ==============================================================================
+
+# 1. 路径管理 (已重构为相对路径，完美适配 Linux Docker/云容器)
+paths:
+  raw_pcd_dir: "./demo_data/pcd"
+  raw_img_dir: "./demo_data/jpg"
+  output_dir: "./demo_data/npz"
+  manual_label_path: "./merged_visual_gt.json"
+  log_dir: "./outputs/logs"
+  checkpoint_dir: "./weights"
+  vis_output_dir: "./outputs/visualizations"
+  weights:
+    point_mae: "./pretrained_models/pretrain.pth"  # 演示运行不依赖该权重
+    mome_model: "./weights/road_mome_v12_best.pth"
+
+# 2. 训练配置 (v9.8 精准打击均衡版)
+# ------------------------------------------------------------------------------
+training:
+  experiment_name: "MoME_v14.0_AttentionMask_NoiseReweight_LRScheduler"
+  seed: 42
+  epochs: 80
+
+  # 建议显存充裕时设为 32 或 64
+  batch_size: 64
+  num_workers: 8               # 训练 DataLoader 进程数
+  val_num_workers: 4           # 验证 DataLoader 进程数（独立控制，避免显存竞争）
+  
+  # ==========================================
+  # [v9.8 核心修改] 专家平权与防误报调优
+  # ==========================================
+  # 1. 双轨学习率控制 (赋予 2D 专家更高的话语权，加快收敛)
+  learning_rate_base: 0.0001   # 门控网络与分类头 (1e-4)
+  learning_rate_2d: 0.00003    # ConvNeXt 提取器 (由 1e-5 提升至 3e-5)
+  
+  # 2. 动态致盲阈值 (削弱对 2D 的压制，防止 3D 一家独大)
+  blind_prob_start: 0.2        # 初始致盲率 (原0.3)
+  blind_prob_end: 0.4          # 最终致盲率 (由 0.7 大幅下调，解放视觉专家)
+
+  # 3. 正负样本权重 (提升 Precision，减少假阳性误报)
+  pos_weight: 3.0              # 漏报惩罚下调 (由 5.0 降至 3.0)
+  blind_loss_boost: 2.0        # 视觉致盲时，3D 专家的 Loss 惩罚放大倍数
+  expert_loss_weight: 0.4      # 三大辅助专家(Phys/Geom/Tex)的 Loss 占比
+  
+  # ==========================================
+  # 底层训练与稳定性控制
+  # ==========================================
+  val_split: 0.15              # [v12.0 正式生效] 按帧随机划分，验证集独立评估
+  amp_enabled: true
+  grad_clip_norm: 5.0          # 梯度裁剪最大范数
+  focal_loss_gamma: 2.0
+  soft_confidence_range: [0.025, 0.035] 
+  soft_confidence_weight: 0.1           
+  resume: false
+  save_best: true
+  ohem_ratio: 0.70             # 在线难例挖掘比例
+  pseudo_frame_weight: 0.5     # [v14.0] 纯伪标签帧（has_gt=0）的损失权重，降低噪声污染
+  sanity_check:
+    ignore_corrupt: true
+
+  # ==========================================
+  # 诊断与消融实验控制 (Ablation Study)
+  # ==========================================
+  ablation:
+    mask_3d_in_cross_attn: false  # 【消融实验开关】设为 true 将彻底切断 Cross-Attention 中 3D 特征的注入
+
+# 3. 特征维度 
+features:
+  phys: { key_name: "phys_8d", input_dim: 8 }
+  3d:   { key_name: "deep_512d", input_dim: 384 }
+  2d:   { key_name: "deep_2d_1024d", input_dim: 1024 } 
+  shared_dim: 128 
+
+# 4. 几何与空间参数
+geometry:
+  roi_x: [-3, 3]       
+  roi_y: [-8, -1]      
+  patch_size_x: 0.85   
+  patch_size_y: 0.77   
+  overlap: 0.0         
+  th_anomaly: 0.05
+  sigma_q: 0.015
+  max_patches: 63      
+
+# 5. 点云采样规格
+sampling:
+  n_points: 8192
+  k_z_stretch: 10.0
+  trans_dim: 384
+
+# 6. 推理与诊断控制
+inference:
+  mode: "random"       
+  batch_limit: 2700
+  inference_batch_size: 8
+  q2_default: 0.8
+  save_plots: true
+  show_plots: false
