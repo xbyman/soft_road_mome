@@ -162,20 +162,7 @@ python -m unittest tests.test_validators
 - `docs/模块设计说明.md`
 - `docs/版本说明.md`
 
-## GitHub 上传建议
-
-如果这个仓库准备上传到 GitHub，建议优先保留源码、配置和必要说明文档，并清理明显的构建与运行产物。
-
-建议不要直接提交的内容：
-
-- `build/`
-- `dist/`
-- `__pycache__/`
-- `outputs/` 下的历史运行结果
-- 本地缓存目录，例如 `.lprof/`、`.sixth/`
-
-如果 `weights/road_mome_v12_best.pth` 体积较大，建议使用 Git LFS 或改为 Release 附件分发。
 
 ##联系方式
 邮箱：<3107848480@qq.com>
-
+权重文件地址<https://huggingface.co/xingboyan/Road_Mome>
